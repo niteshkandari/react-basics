@@ -7,12 +7,24 @@ const Todo = () => {
   const handleChange = (e) => {
     setValue(e.target.value);
   };
+  
   const handleAddToDoList = () => {
-    const oldList = [...toDoList];
-    oldList.push(
-      Object.assign({}, { value, id: Math.floor(Math.random() * 100000) })
-    );
-    setTodoList([...oldList]);
+    // const oldList = [...toDoList];
+    // oldList.push(
+    //   Object.assign({}, { value, id: Math.floor(Math.random() * 100000) })
+    // );
+    // setTodoList([...oldList]);
+
+    const newEntry = {
+      value: value,
+      id: 1,
+    };
+    
+    setTodoList(previous => [...previous, newEntry]);
+    
+    console.log(toDoList);
+    // console.log(toDoList);
+    // setTodoList(toDoList);
   };
 
   const handleDeleteElement = (id) => {
@@ -21,6 +33,13 @@ const Todo = () => {
       return (previousState = oldList.filter((data) => data.id != id));
     });
   };
+
+  const cssCenter = {
+    display: "flex",
+    justifyContent: "center",
+    alignContent: "center",
+  };
+  
   return (
     <div>
       {/**in jsx its not necessary to close and input and img tag
@@ -38,20 +57,13 @@ const Todo = () => {
           //also i can directly write styles in and element it just that i have to pass it like and object
           return (
             <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignContent: "center",
-              }}
+              style={cssCenter}
+              key={data.id}
             >
-              <div 
-               style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  flexDirection:"column"
-               }}
-               key={data.id}>
-                value : {data.value} <br/>
+              <div
+                style={cssCenter}
+              >
+                value : {data.value} <br />
                 id : {data.id}
               </div>
               <span
@@ -59,7 +71,7 @@ const Todo = () => {
                   fontWeight: 900,
                   fontSize: 20,
                   color: "red",
-                  cursor:  'pointer'
+                  cursor: "pointer",
                 }}
                 onClick={() => handleDeleteElement(data.id)}
               >
