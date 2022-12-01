@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+.title {
+  font-size: 29px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color:deeppink;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

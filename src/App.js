@@ -1,53 +1,76 @@
 import './App.css';
-import { useEffect, useState } from "react"
-import Todo from "./Todo";  //here i m importing a component from diff 
-//file which i am gonna render inside my app function
-// also a react component can only return one div 
-// i cannot do like this, those two divs has to be enclosed inside a parent div
-//  const ExApp = () => {
-//   return (
-//     <div>
-//     <div></div>
-//     <div></div>
-//     </div>
-//   );
-//  }
-
+// import { useSelector, useDispatch } from "react-redux";
+// import { pizzaSlice } from "./redux-store-1/pizzaSlice";
+// import ReducerComponent from './ReducerComponent';
+import Form from "./Form/index";
 
 function App() {
-  const [number, setNumber] = useState(0);
+  // const pizza = useSelector(state => state.pizza)
+  // useEffect(() => {}, [variable])
+  // const dispatch = useDispatch();
+  
+  // const handleRemove = () => {
+  //  const removedItem = window.prompt("please enter topping you want to remove")
+  //  dispatch(pizzaSlice.actions.removeTopping(removedItem)); 
+  // }
 
-  const handleIncrement = () => {
-    // in set state here we can update the value in two ways
-    //1 is this one with a call back where we get the snapshot 
-    //of the previous value and this is also the recommended way -> 
-    setNumber(previous => {
-      return previous = previous + 1;
-    })
-    // 2 other way to update the value in set state is 
-    //here we just take the variable and directly update it , one disadvantage here is that we dont have 
-    // any idea about the previous value
-    setNumber(number++);
-  }
-  const handleDecrement = () => {
-    setNumber(previous => {
-      return previous = previous - 1;
-    })
-  }
+  // const count = useSelector(state => state.count);
+  // const dispatch = useDispatch();
+
+  // const handleUserGivenValue = () => {
+  //   const usergivenValue = window.prompt("Enter number");
+  //   if(usergivenValue) {
+  //   dispatch({type:"ADD_USER_GIVEN_VALUE",payload:parseInt(usergivenValue)})
+  //   }
+  // }
 
   return (
     <div className="App">
-      {number}
 
-      <button onClick={handleIncrement}>+</button>
-      <button onClick={handleDecrement}>-</button>
+    {/* <p className='title'>Redux</p>  
+      {count}
+    <button onClick={() => dispatch({type:"INCREMENT"})}>+</button>  
+    <button onClick={() => dispatch({type:"DECREMENT"})}>-</button>
+    <button onClick={handleUserGivenValue}>increment by user given value</button>
+    <button onClick={() => dispatch({type:"RESET"})}>reset</button> */}
+    {/* <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+   <p className='title'>useReducer hook </p>
+   <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    */}
+    {/* <ReducerComponent/>  */}
+  
+    
+    
+{/* 
+    {pizza.toppings.map(topping => {
+      return <div key={topping}>{topping}</div>
+     })}
+     <button onClick={() => dispatch(pizzaSlice.actions.addTopping("olives"))}>add olives</button>
+     <button onClick={() => dispatch(pizzaSlice.actions.addTopping("red sauce"))}>add red sauce</button>
+     <button onClick={() => dispatch(pizzaSlice.actions.addTopping("mozzarella"))}>add mozzarella</button>
+     <button onClick={() => dispatch(pizzaSlice.actions.addTopping('chicken'))}>add chicken</button>
+     <button onClick={() => dispatch(pizzaSlice.actions.addTopping("jalapeno"))}>add jalapeno</button>
+     <button onClick={handleRemove}>remove topping</button>  */}
 
-      {/**** for rending a component inside other component we just have to write the name of 
-       * component , also when ever we create a component the first letter must be capital react would
-       * just not recognise it as a component
-       */}
 
-       <Todo/>
+     {/* <p className='title'> custom hook </p>
+     <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>*/}
+     <Form/> 
     </div>
   );
 }
