@@ -1,12 +1,17 @@
 import './App.css';
+import { useLayoutEffect } from "react";
 // import { useSelector, useDispatch } from "react-redux";
 // import { pizzaSlice } from "./redux-store-1/pizzaSlice";
 // import ReducerComponent from './ReducerComponent';
-import Form from "./Form/index";
+// import Form from "./Form/index";
+// import Home from "./Home/Home";
+import Counter from "./HocComponent/Counter";
 
 function App() {
+   useLayoutEffect(() => {
+    console.log("rebder")
+   },[])
   // const pizza = useSelector(state => state.pizza)
-  // useEffect(() => {}, [variable])
   // const dispatch = useDispatch();
   
   // const handleRemove = () => {
@@ -70,7 +75,9 @@ function App() {
     <br/>
     <br/>
     <br/>*/}
-     <Form/> 
+     {/* <Form/>  */}
+     {/* <Home/> */}
+     <Counter/>
     </div>
   );
 }
